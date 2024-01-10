@@ -59,29 +59,29 @@ deployments:
       #        averageValue: 100Mi
 
   executor:
-    enabled: false
+    enabled: true
     kind: Deployment
     command: "server executor"
 
   indexer:
-    enabled: false
+    enabled: true
     kind: Deployment
     command: "server indexer"
 
   scheduler:
-    enabled: false
+    enabled: true
     kind: Deployment
     command: "server scheduler"
 
   worker:
-    enabled: false
+    enabled: true
     kind: Deployment
     command: "server worker --thread={{ .Values.deployments.worker.workerThreads }}"
     terminationGracePeriodSeconds: 60
     workerThreads: 128
 
   standalone:
-    enabled: true
+    enabled: false
     kind: Deployment
     command: "server standalone --worker-thread={{ .Values.deployments.standalone.workerThreads }}"
     terminationGracePeriodSeconds: 60
@@ -147,7 +147,7 @@ minio:
   persistence:
     size: 8Gi
   buckets:
-    - name: kestra
+    - name: kestra-for-poc
       policy: none
       purge: false
   resources:
