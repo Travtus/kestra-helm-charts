@@ -62,6 +62,7 @@ deployments:
     enabled: true
     kind: Deployment
     command: "server executor"
+    replicaCount: 5
 
   indexer:
     enabled: true
@@ -79,7 +80,7 @@ deployments:
     command: "server worker --thread={{ .Values.deployments.worker.workerThreads }}"
     terminationGracePeriodSeconds: 60
     workerThreads: 128
-    replicaCount: 5
+    replicaCount: 2
 
   standalone:
     enabled: false
