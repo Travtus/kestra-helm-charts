@@ -62,7 +62,7 @@ deployments:
     enabled: true
     kind: Deployment
     command: "server executor"
-    replicaCount: 5
+    replicaCount: 100
 
   indexer:
     enabled: true
